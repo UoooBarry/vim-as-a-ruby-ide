@@ -182,7 +182,7 @@ command! Qall qall
 command! W w
 " FZF
 nnoremap <C-f> :FZF<cr>
-let $FZF_DEFAULT_COMMAND = ''
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nmap <F7> :setlocal spell! spell?<CR>
 " Toggle relative numbers
 map <Leader>n :call NumberToggle()<CR>
