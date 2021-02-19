@@ -1,7 +1,20 @@
 let os = substitute(system('uname'), "\n", "", "")
 
 call plug#begin('~/.vim/plugged')
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
+nmap <leader>p :FZF<CR>
+
+let NERDTreeMapOpenInTab='\r'
+let g:ag_working_path_mode="r"
+
+Plug 'the_silver_searcher'
+Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'chusiang/vim-sdcv' " How to install dict see https://askubuntu.com/questions/191125/is-there-an-offline-command-line-dictionary
 Plug 'kassio/neoterm'
@@ -169,8 +182,7 @@ command! Qall qall
 command! W w
 " FZF
 nnoremap <C-f> :FZF<cr>
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
+let $FZF_DEFAULT_COMMAND = ''
 nmap <F7> :setlocal spell! spell?<CR>
 " Toggle relative numbers
 map <Leader>n :call NumberToggle()<CR>
